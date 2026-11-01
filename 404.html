@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>NOT FOUND—页面不存在</title>
+<!-- 云汀记 404 -->
+<style>
+  :root {
+    --bg: #0e0e0e;
+    --panel: #161616;
+    --line: rgba(255, 255, 255, .09);
+    --text: #d6d6d6;
+    --dim: #6b6b6b;
+    --accent: #ff5f56;
+    --ok: #7ee787;
+    --path: #79c0ff;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html, body { height: 100%; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas,
+                 "PingFang SC", "Microsoft YaHei", monospace;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  }
+
+  .page {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 3rem 1.25rem 2rem;
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    font-size: .78rem;
+    color: var(--dim);
+    letter-spacing: .08em;
+    margin-bottom: 1rem;
+  }
+
+  .tag::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 8px rgba(255, 95, 86, .7);
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 9vw, 3.4rem);
+    font-weight: 700;
+    color: #f2f2f2;
+    letter-spacing: -.02em;
+    line-height: 1.15;
+    margin-bottom: .6rem;
+  }
+
+  .sub {
+    font-size: .92rem;
+    color: var(--dim);
+    margin-bottom: 2.2rem;
+  }
+
+  .term {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, .45);
+    text-align: left;
+  }
+
+  .term-bar {
+    display: flex;
+    align-items: center;
+    gap: .45rem;
+    padding: .65rem .9rem;
+    border-bottom: 1px solid var(--line);
+    background: rgba(255, 255, 255, .02);
+  }
+
+  .dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .dot:nth-child(1) { background: #ff5f57; }
+  .dot:nth-child(2) { background: #febc2e; }
+  .dot:nth-child(3) { background: #28c840; }
+
+  .term-title {
+    margin-left: .5rem;
+    font-size: .72rem;
+    color: var(--dim);
+    letter-spacing: .04em;
+  }
+
+  .term-body {
+    padding: 1.1rem 1rem 1.25rem;
+    font-size: clamp(.78rem, 3.4vw, .88rem);
+    line-height: 1.9;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+
+  .row {
+    opacity: 0;
+    transform: translateY(4px);
+    animation: in .35s ease forwards;
+  }
+
+  @keyframes in {
+    to { opacity: 1; transform: none; }
+  }
+
+  .prompt { color: var(--dim); }
+  .key    { color: var(--dim); }
+  .val    { color: var(--text); }
+  .path   { color: var(--path); }
+  .err    { color: var(--accent); font-weight: 700; }
+  .ok     { color: var(--ok); }
+
+  .caret {
+    display: inline-block;
+    width: .55em;
+    height: 1.05em;
+    background: var(--text);
+    vertical-align: text-bottom;
+    animation: blink 1.1s steps(1) infinite;
+  }
+
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+
+  .loading { color: var(--dim); }
+
+  .links {
+    margin-top: 2.4rem;
+    display: flex;
+    gap: 1.6rem;
+    font-size: .9rem;
+  }
+
+  .links a {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--dim);
+    padding-bottom: 2px;
+    transition: color .15s ease, border-color .15s ease;
+  }
+
+  .links a:hover {
+    color: #fff;
+    border-color: #fff;
+  }
+
+  footer {
+    text-align: center;
+    padding: 1.2rem;
+    font-size: .72rem;
+    color: var(--dim);
+    letter-spacing: .06em;
+  }
+  /* 底部链接 */
+  footer a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .row { animation: none; opacity: 1; transform: none; }
+    .caret { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <span class="tag">ERROR 404 — NOT FOUND</span>
+  <h1>页面不存在</h1>
+  <p class="sub">你访问的地址没有任何你想要的内容</p>
+
+  <div class="term">
+    <div class="term-bar">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="term-title">access.log</span>
+    </div>
+    <div class="term-body" id="log"></div>
+  </div>
+
+  <nav class="links">
+    <a href="https://imoe.top">← 返回首页</a>
+  </nav>
+</div>
+
+<footer><a href="https://imoe.top">云汀记</a></footer>
+
+<script>
+(function () {
+  var path   = window.location.pathname + window.location.search;
+  var time   = new Date();
+  var pad    = function (n) { return n < 10 ? '0' + n : n; };
+  var ts     = time.getFullYear() + '-' + pad(time.getMonth() + 1) + '-' + pad(time.getDate()) +
+               ' ' + pad(time.getHours()) + ':' + pad(time.getMinutes()) + ':' + pad(time.getSeconds());
+
+  var log = document.getElementById('log');
+
+  var lines = [
+    { html: '<span class="prompt">$</span> GET <span class="path">' + escapeHtml(path) + '</span> HTTP/1.1', delay: 150 },
+    { html: '<span class="key">time&nbsp;&nbsp;&nbsp;:</span> <span class="val">' + ts + '</span>', delay: 420 },
+    { html: '<span class="key">client&nbsp;:</span> <span class="val" id="ip"><span class="loading">resolving…</span></span>', delay: 650 },
+    { html: '<span class="key">status&nbsp;:</span> <span class="err">404 Not Found</span>', delay: 880 },
+    { html: '<span class="ok">→ 警告：后台已记录你当前的访问路径及IP</span>', delay: 1150 },
+    { html: '<span class="prompt">$</span> <span class="caret"></span>', delay: 1450 }
+  ];
+
+  lines.forEach(function (l) {
+    var div = document.createElement('div');
+    div.className = 'row';
+    div.style.animationDelay = l.delay + 'ms';
+    div.innerHTML = l.html;
+    log.appendChild(div);
+  });
+
+  function escapeHtml(s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function setIp(text, isErr) {
+    var el = document.getElementById('ip');
+    if (!el) return;
+    el.textContent = text;
+    if (isErr) el.className = 'val loading';
+  }
+
+  function fetchWithTimeout(url, ms) {
+    return new Promise(function (resolve, reject) {
+      var t = setTimeout(function () { reject(new Error('timeout')); }, ms);
+      fetch(url).then(function (r) {
+        clearTimeout(t);
+        resolve(r);
+      }, function (e) {
+        clearTimeout(t);
+        reject(e);
+      });
+    });
+  }
+
+  fetchWithTimeout('https://api64.ipify.org?format=json', 4000)
+    .then(function (r) { return r.json(); })
+    .then(function (d) { setIp(d.ip); })
+    .catch(function () {
+      fetchWithTimeout('https://ipapi.co/json/', 4000)
+        .then(function (r) { return r.json(); })
+        .then(function (d) { setIp(d.ip || 'unknown'); })
+        .catch(function () { setIp('(获取失败)', true); });
+    });
+})();
+</script>
+
+</body>
+</html>

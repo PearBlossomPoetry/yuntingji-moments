@@ -1,0 +1,42 @@
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+Options -Indexes
+
+<FilesMatch "\.(env|ini|log|sql|bak|backup|old|orig|swp|zip|tar|gz|rar|7z)$">
+    Require all denied
+</FilesMatch>
+
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    RewriteRule ^feed$ rss.php [L]
+    RewriteRule ^rss\.xml$ rss.php [L]
+    RewriteRule ^rss$ rss.php [L]
+
+    # 拒绝从搜索引擎跳转过来的非官方爬虫
+    RewriteCond %{HTTP_REFERER} google\.com [NC]
+    RewriteCond %{REMOTE_ADDR} !^66\.249\.
+    RewriteCond %{REMOTE_ADDR} !^34\.66\.
+    RewriteCond %{REMOTE_ADDR} !^35\.185\.
+    RewriteCond %{REMOTE_ADDR} !^203\.208\.
+    RewriteCond %{REMOTE_ADDR} !^74\.125\.
+    RewriteCond %{REMOTE_ADDR} !^108\.177\.
+    RewriteCond %{REMOTE_ADDR} !^142\.250\.
+    RewriteCond %{REMOTE_ADDR} !^142\.251\.
+    RewriteCond %{REMOTE_ADDR} !^172\.217\.
+    RewriteCond %{REMOTE_ADDR} !^173\.194\.
+    RewriteRule ^ - [R=403,L]
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^([a-zA-Z0-9_-]+)\.html$ article.php?slug=$1 [L,QSA]
+</IfModule>
